@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BLink – Katherine Shen</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700&family=Urbanist:wght@800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fdf9f5;--ink:#422821;--blue:#74a8cf;--foot:#f4e6e6;--line:#c8c8c8;
+--sans:'Inter',system-ui,sans-serif;--syne:'Syne',system-ui,sans-serif;--urb:'Urbanist','Inter',sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.4 var(--sans)}
+a{color:inherit}
+img{display:block;max-width:100%}
+/* top nav */
+.top{display:flex;align-items:center;justify-content:space-between;padding:20px clamp(14px,1.7vw,26px);min-height:121px;gap:20px}
+.brand{display:flex;align-items:center;gap:7px;text-decoration:none;font:600 24px var(--syne)}
+.brand img{width:64px;height:64px;object-fit:cover}
+.top nav{display:flex;gap:41px;font-size:20px}
+.top nav a{text-decoration:none}
+/* layout */
+.wrap{display:flex;align-items:flex-start}
+.side{position:sticky;top:0;flex:0 0 269px;padding:71px 49px;font-size:16px;display:flex;flex-direction:column;gap:32px;align-self:flex-start}
+.side a{text-decoration:none;opacity:.85;transition:opacity .15s}
+.side a:hover,.side a.on{opacity:1;font-weight:700}
+main{flex:1;min-width:0;padding:44px clamp(20px,3vw,33px) 80px;position:relative}
+.inner{max-width:1075px}
+h1{font:800 clamp(44px,7vw,72px)/1 var(--urb)}
+.sub{font:500 clamp(17px,2.2vw,22px) var(--syne);margin-top:4px}
+h2{font:700 28px var(--syne);color:var(--blue);margin-bottom:13px}
+p.t{max-width:1000px}
+section{margin-top:61px;scroll-margin-top:24px}
+/* hero */
+.hero{position:relative;margin-top:39px;max-width:990px;aspect-ratio:990/485;border-radius:30px;overflow:hidden;background:linear-gradient(120deg,#cfe0f1,#e9dcef 60%,#f6e3e6)}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(2.5px);opacity:.7}
+.phone{position:absolute;top:6.4%;height:87.6%;aspect-ratio:196/425;border-radius:30px;background:rgba(255,255,255,.55);border:1px solid rgba(66,40,33,.12);display:grid;place-items:center;font-size:13px;text-align:center;padding:8px}
+.meta{display:flex;flex-wrap:wrap;gap:24px clamp(40px,11vw,166px);margin-top:39px}
+.meta u{text-underline-position:from-font}
+.meta div>*+*{margin-top:13px}
+hr{border:0;border-top:1px solid var(--blue);margin:39px 0 0;max-width:1075px}
+/* figures */
+.row{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin-top:29px}
+.row img,.shot{width:195px;height:425px;object-fit:cover;border-radius:20px}
+.hifi img{width:212px;height:auto;aspect-ratio:402/874;object-fit:cover;border-radius:20px}
+.hifi{gap:60px}
+figure{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;margin-top:29px}
+figure img.f{border-radius:20px;width:100%}
+.bord{border:1px solid var(--line)}
+figcaption{font-size:14px}
+.arrow{align-self:center;font-size:40px;color:var(--blue)}
+.pair{display:flex;gap:45px;justify-content:center;align-items:center;flex-wrap:wrap}
+.pair figure{width:min(436px,100%);margin-top:0}
+.final{position:relative;margin-top:26px;aspect-ratio:850/586;max-width:850px;margin-inline:auto;border-radius:25px;overflow:hidden;background:linear-gradient(120deg,#cfe0f1,#e9dcef 60%,#f6e3e6)}
+.final img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(2.5px);opacity:.7}
+.final .phone{left:50%;transform:translateX(-50%);top:7%;height:85%;aspect-ratio:230/500;border-radius:37px}
+b{font-weight:700}
+.tk p+p{margin-top:1.3em}
+.up{position:absolute;right:20px;bottom:24px;width:68px;transform:rotate(6deg)}
+footer{background:var(--foot);padding:37px clamp(20px,4vw,58px);min-height:219px}
+footer h3{font:500 32px var(--syne);display:flex;align-items:center;gap:6px}
+footer h3 img{width:47px;transform:rotate(16.8deg)}
+footer ul{list-style:none;padding:0;margin-top:18px;display:flex;flex-direction:column;gap:12px;font-size:16px}
+footer li{display:flex;align-items:center;gap:11px}
+footer li img,footer li svg{width:28px;height:28px}
+footer li svg{color:#fff}
+/* tablet & mobile: sidebar becomes a sticky top strip */
+@media(max-width:900px){
+.wrap{flex-direction:column;align-items:stretch}
+.side{flex:none;flex-direction:row;padding:14px 20px;gap:22px;overflow-x:auto;background:var(--bg);z-index:5;border-bottom:1px solid #eadfd5;white-space:nowrap;width:100%}
+main{padding-top:32px}
+.top{padding-block:14px;min-height:0}
+.brand img{width:48px;height:48px}
+.top nav{gap:24px}
+.up{width:46px}
+}
+@media(max-width:560px){body{font-size:16px}figcaption{font-size:13px}.row{gap:16px}.hifi{gap:24px}.phone{font-size:10px;border-radius:18px}}
+/* scroll reveal: fade + rise into place */
+.js .rv{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .meta.rv{transition-delay:.12s}
+/* phone screens rise one after another once their section is visible */
+.js .row>*{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.js section.in .row>*{opacity:1;transform:none}
+.js section.in .row>:nth-child(2){transition-delay:.15s}
+.js section.in .row>:nth-child(3){transition-delay:.3s}
+.js section.in .row>:nth-child(4){transition-delay:.45s}
+.js section.in .row>:nth-child(5){transition-delay:.6s}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv,.js .row>*{opacity:1;transform:none;transition:none}}
+
+/* shared polish: custom cursor, star size + wiggle, green link hovers */
+html,body,a,button{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAADgUlEQVR42r1WXUwcVRT+zrmzM8MusyoD60+2rfGHZKX1oZvWiIKkMRVDXxpRnvpQTapvvhkbX/pifNUQ3/RFjamNb5aWkkq1JFRrNgYLpdlEYiEB2bJbnFnWZYc7xwd27YKlYRPsl5xMMvfe75t75p7vXMLWoOpTQAQCIHUDAgAiG+fdg+Ru74WIICImAMcCHBewACAPrK4CPgCfiCpyR0i2I0AgkrRI9A9gd0/nwd0v9b2aaE/tcx50XQsAlvP51ez0Nf/HofO5H8avzj4OzGaIShD5j8hmASIiaRV5JJ3uePbdD0490fXyK60xxzHvMldWfL8ydvHC0icfnprJZKZ+WyL6UzaJqM3kj4kkB44NvDD41em9+/YfcE3LYmgdapFQ6oJFxLRt46nUMw/0vdbfVliYc+YmJr0ikVf/Mao+LQmRhweODbz48RenU03RmKWDQIMIpBQx84YAM4VhiHBtLYw2x83eo/3u7MwNe2ZiMr9CVKyJqNrPSSaTTemndx0c/PpMh90UtbTWWhkGEdHWx4wIrBRprUNmNp7v6XF+vnhOSmzOe54XACBVTQ0invfkR4OfpvfuP+AGQaANwyBsE8xMQRCE0ZhjP+S2Rc589nmhTJQHQAxARCTS1Zne03241wUQRpTaNnkN1TVh9+Fet6szvUdEIgCEsZ6C+KG+I4mY45ha6xDMaBjM0FqHMccxD/UdSQCIgwhMAGyguT3V4dyj8BoBtac6HBtoJgAsAFoAu6UtYWKH0NKWMFsAWwAw/mcwASgA5cKtXGWnSAu3cpUCUP43RWWgmJ2e8rdyxAYh2ekpvwwU11O07oTe6NDZ3IrvV5RSjDBsnDYMoZTiFd+vjA6dzQHwIAKuFlowNp65eXlkOA+AA60b3kl1DV8eGc6PjWduEtGdSgYAN5kszf36k9P3+hut0ZhjVct/W8dWay2GYai/bi+VTp44fj2vrGue563VBACAPN8PludzxaX52Xjv0X6XmQ0dBCGItvSjqtmJMgwFYO39t9/MXhi+dHXB95drHrfBrktExbmJSW925ob9XHd3PNoct4gI0Fq0CKQuWASkFLNS6nY+9/fJd97KfvvlN1cWiRbqG4/aXIVFIu/3icnCle/Ph61tCePR5C7btO0IMyuuA5hpxfeD0XPfLb534vj1keFLvywSzW9uOPe9Zd6Xpr+j15Z/AKEMv8H0CGsWAAAAAElFTkSuQmCC") 12 12,auto;cursor:image-set(url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAADgUlEQVR42r1WXUwcVRT+zrmzM8MusyoD60+2rfGHZKX1oZvWiIKkMRVDXxpRnvpQTapvvhkbX/pifNUQ3/RFjamNb5aWkkq1JFRrNgYLpdlEYiEB2bJbnFnWZYc7xwd27YKlYRPsl5xMMvfe75t75p7vXMLWoOpTQAQCIHUDAgAiG+fdg+Ru74WIICImAMcCHBewACAPrK4CPgCfiCpyR0i2I0AgkrRI9A9gd0/nwd0v9b2aaE/tcx50XQsAlvP51ez0Nf/HofO5H8avzj4OzGaIShD5j8hmASIiaRV5JJ3uePbdD0490fXyK60xxzHvMldWfL8ydvHC0icfnprJZKZ+WyL6UzaJqM3kj4kkB44NvDD41em9+/YfcE3LYmgdapFQ6oJFxLRt46nUMw/0vdbfVliYc+YmJr0ikVf/Mao+LQmRhweODbz48RenU03RmKWDQIMIpBQx84YAM4VhiHBtLYw2x83eo/3u7MwNe2ZiMr9CVKyJqNrPSSaTTemndx0c/PpMh90UtbTWWhkGEdHWx4wIrBRprUNmNp7v6XF+vnhOSmzOe54XACBVTQ0invfkR4OfpvfuP+AGQaANwyBsE8xMQRCE0ZhjP+S2Rc589nmhTJQHQAxARCTS1Zne03241wUQRpTaNnkN1TVh9+Fet6szvUdEIgCEsZ6C+KG+I4mY45ha6xDMaBjM0FqHMccxD/UdSQCIgwhMAGyguT3V4dyj8BoBtac6HBtoJgAsAFoAu6UtYWKH0NKWMFsAWwAw/mcwASgA5cKtXGWnSAu3cpUCUP43RWWgmJ2e8rdyxAYh2ekpvwwU11O07oTe6NDZ3IrvV5RSjDBsnDYMoZTiFd+vjA6dzQHwIAKuFlowNp65eXlkOA+AA60b3kl1DV8eGc6PjWduEtGdSgYAN5kszf36k9P3+hut0ZhjVct/W8dWay2GYai/bi+VTp44fj2vrGue563VBACAPN8PludzxaX52Xjv0X6XmQ0dBCGItvSjqtmJMgwFYO39t9/MXhi+dHXB95drHrfBrktExbmJSW925ob9XHd3PNoct4gI0Fq0CKQuWASkFLNS6nY+9/fJd97KfvvlN1cWiRbqG4/aXIVFIu/3icnCle/Ph61tCePR5C7btO0IMyuuA5hpxfeD0XPfLb534vj1keFLvywSzW9uOPe9Zd6Xpr+j15Z/AKEMv8H0CGsWAAAAAElFTkSuQmCC") 1x,url("data:image/png;base64,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") 2x) 12 12,auto}
+:active{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACyklEQVR42sVWz0tUURT+7rkjTo4Pyx8jIipMiI1KCIkuxEJTF6m7cCNEbvoHFPLPCPQ/aNNqxExIx3IhBoptClNQAnWh85zxjT4ty3vvaTFvRIzRtLQDHzzufd/58V3uOVcgs4kUhBHkfYJPbDHYMAAmb4MzOcm0zkQSxugbAIp9QFEBYAFAAnAVsA0gRiS/G6NxKoMzAwhBxHctc3NjF/UPmxvrWzq7airDNSW3CoMWADhx211ZWtycHn+z+G5mbqEsDwufXEqyMSJTJcfOiQj5QLjrXu3gxGgk+s11N5g5ycy7p5D85robE6ORaNe92sF8IExEZ6kCEkQoAuoG+nqHnER8lZn3mDmhlLK1UjGtdQpKxZRSNjMnmHnPScRXB/p6h4qAOpEKQr/LIgQsoKr/ae+w1nqLmR2l1BYz28y8nQG294+jtd7qf9o7bAFVQojjSmT6cEKhUF797bInL16+6rmRE7C01j+llPKskj1JSWutpJTZDfcflH58//ZQ+QOfHcc5THNJECEPaJ0YiUSZec/Lavsi8Dh7EyORaB7QmpaKIGDKjfF3NDc2NLW13wFwJKUkXNA8zlFTW/udjubGhnJj/BAwJARhDShu6eyuCeTmWsYYdY4sGeUyxqhAbq7V0tldswYUC0EgQMAHBCvD1SUABJhxaUtxRWW4usQHBAEBAhgFgJW+RBDi8gE87q3CoJW69QzCFRsBAgnAdeK2e6LMv5EITtx2E4B7LJEC7JWlL5sA+B9IxCtLXzYVYAMMYjaoAGLT42OLB/v7LhH5zmtYmfInIt/B/r47PT62WAHEmA0IDFonOpycmZufnYouA8jSWpuLevc4WbNT0eXJmbn5daJDMEimtSsNhXa+LnwofPS4pyonELC01oqIxJ86l1JmJ3cS8efP+iIH/sBrZ2fnx7U0u2tr11c2cK58ZP6Xof9Pny2/AOMJdDpJqeqMAAAAAElFTkSuQmCC") 12 12,auto;cursor:image-set(url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACyklEQVR42sVWz0tUURT+7rkjTo4Pyx8jIipMiI1KCIkuxEJTF6m7cCNEbvoHFPLPCPQ/aNNqxExIx3IhBoptClNQAnWh85zxjT4ty3vvaTFvRIzRtLQDHzzufd/58V3uOVcgs4kUhBHkfYJPbDHYMAAmb4MzOcm0zkQSxugbAIp9QFEBYAFAAnAVsA0gRiS/G6NxKoMzAwhBxHctc3NjF/UPmxvrWzq7airDNSW3CoMWADhx211ZWtycHn+z+G5mbqEsDwufXEqyMSJTJcfOiQj5QLjrXu3gxGgk+s11N5g5ycy7p5D85robE6ORaNe92sF8IExEZ6kCEkQoAuoG+nqHnER8lZn3mDmhlLK1UjGtdQpKxZRSNjMnmHnPScRXB/p6h4qAOpEKQr/LIgQsoKr/ae+w1nqLmR2l1BYz28y8nQG294+jtd7qf9o7bAFVQojjSmT6cEKhUF797bInL16+6rmRE7C01j+llPKskj1JSWutpJTZDfcflH58//ZQ+QOfHcc5THNJECEPaJ0YiUSZec/Lavsi8Dh7EyORaB7QmpaKIGDKjfF3NDc2NLW13wFwJKUkXNA8zlFTW/udjubGhnJj/BAwJARhDShu6eyuCeTmWsYYdY4sGeUyxqhAbq7V0tldswYUC0EgQMAHBCvD1SUABJhxaUtxRWW4usQHBAEBAhgFgJW+RBDi8gE87q3CoJW69QzCFRsBAgnAdeK2e6LMv5EITtx2E4B7LJEC7JWlL5sA+B9IxCtLXzYVYAMMYjaoAGLT42OLB/v7LhH5zmtYmfInIt/B/r47PT62WAHEmA0IDFonOpycmZufnYouA8jSWpuLevc4WbNT0eXJmbn5daJDMEimtSsNhXa+LnwofPS4pyonELC01oqIxJ86l1JmJ3cS8efP+iIH/sBrZ2fnx7U0u2tr11c2cK58ZP6Xof9Pny2/AOMJdDpJqeqMAAAAAElFTkSuQmCC") 1x,url("data:image/png;base64,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") 2x) 12 12,auto}
+.brand img{transform-origin:50% 55%}
+@keyframes wiggle{0%,100%{transform:rotate(0)}18%{transform:rotate(-16deg)}36%{transform:rotate(13deg)}54%{transform:rotate(-9deg)}72%{transform:rotate(5deg)}}
+.brand:hover img,.brand:focus-visible img{animation:wiggle .7s ease-in-out}
+.top nav a,.side a,footer a,.brand{transition:color .15s ease}
+.top nav a:hover,footer a:hover,.brand:hover{color:#698e4a}
+@media(prefers-reduced-motion:reduce){.brand:hover img,.brand:focus-visible img{animation:none}}
+video.phone,video.vid,video.final2{object-fit:cover;padding:0;background:none}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<header class="top" id="top">
+  <a class="brand" href="index.html"><img alt="" src="images/star-button.png">Katherine Shen</a>
+  <nav><a href="index.html#work">work</a><a href="about.html">about</a></nav>
+</header>
+
+<div class="wrap">
+  <nav class="side" aria-label="Case study sections">
+    <a href="index.html#work">←&nbsp; Back</a>
+    <a href="#overview">Overview</a><a href="#problem">Problem</a><a href="#research">Research</a>
+    <a href="#lofi">Lo-fi designs</a><a href="#hifi">Hi-fi iterations</a><a href="#final">Final design</a>
+    <a href="#takeaways">Takeaways</a><a href="#extras">Extras</a>
+  </nav>
+
+  <main>
+    <div class="inner">
+      <h1>BLink</h1>
+      <p class="sub">Mobile app design</p>
+      <div class="hero">
+        <img class="bg" alt="" src="images/blink-background-top.png">
+        <video class="phone" style="left:27%" src="videos/blink-demo-1.mov" autoplay loop muted playsinline></video>
+        <video class="phone" style="left:53%" src="videos/blink-demo-2.mov" autoplay loop muted playsinline></video>
+      </div>
+      <div class="meta">
+        <div><u>Role</u><p>Product Designer</p></div>
+        <div><u>Timeline</u><p>Oct. 2025 - May 2026</p></div>
+        <div><u>Team</u><p>1 Product Manager<br>5 Developers<br>2 Designers</p></div>
+      </div>
+      <hr>
+
+      <section id="overview">
+        <h2>OVERVIEW</h2>
+        <p class="t">BLink is a campus events app for UCLA students to discover and post pop-ups, giveaways, and other events. I joined the BLink team as a designer through DevX, a product development club at UCLA, to design and market the app.</p>
+      </section>
+
+      <section id="problem">
+        <h2>THE PROBLEM</h2>
+        <p class="t">The original prototypes for BLink had a blocky, simple design with inconsistent button designs and corner radii, which made the app look rudimentary and unfinished. Our product manager wanted the design to be more modern and wanted to revamp the entire visual design of the project.</p>
+        <figure>
+          <div class="row" style="margin-top:0">
+            <img alt="Early home screen" src="images/early-home.png">
+            <img alt="Early event details screen" src="images/early-events.png">
+            <img alt="Early map screen" src="images/early-map.png">
+            <img alt="Early profile screen" src="images/early-profile.png">
+          </div>
+          <figcaption>Early BLink screens</figcaption>
+        </figure>
+      </section>
+
+      <section id="research">
+        <h2>RESEARCH</h2>
+        <p class="t">After identifying what needed to be changed about the current BLink design, our next step was establishing a new visual direction for the marketing and UX of the app.</p>
+        <figure style="max-width:438px;margin-inline:auto">
+          <img class="f bord" style="aspect-ratio:3600/3419;object-fit:cover" alt="Moodboard" src="images/blink-moodboard.png">
+          <figcaption>Moodboard &amp; inspiration</figcaption>
+        </figure>
+        <figure style="max-width:829px;margin-inline:auto">
+          <img class="f bord" style="aspect-ratio:2697/1192;object-fit:cover" alt="Redesigned logo and color palette" src="images/blink-design-system.png">
+          <figcaption>Redesigned logo &amp; color palette</figcaption>
+        </figure>
+      </section>
+
+      <section id="lofi">
+        <h2>INITIAL DESIGNS</h2>
+        <p class="t">We based much of our low-fidelity wireframing off of the original prototypes but added some pages that were missing initially, like the account dashboard, loading screen, and form pages.</p>
+        <div class="row" style="gap:22px">
+          <img alt="Low-fi home" src="images/blink-home-lofi.png">
+          <img alt="Low-fi event details" src="images/blink-events-lofi.png">
+          <img alt="Low-fi map" src="images/blink-map-lofi.png">
+          <img alt="Low-fi profile" src="images/blink-account-lofi.png">
+          <img alt="Low-fi account dashboard" src="images/blink-login-lofi.png">
+        </div>
+      </section>
+
+      <section id="hifi">
+        <h2>HI-FI ITERATIONS</h2>
+        <p class="t">To finalize the theme of the app’s UX, we created several iterations of the core pages and presented them to our product manager and our peers in DevX for feedback.</p>
+        <div class="row hifi">
+          <figure style="margin-top:0"><img alt="Dark color scheme" src="images/blink-dark-hifi.png"><figcaption>Dark color scheme</figcaption></figure>
+          <figure style="margin-top:0"><img alt="Light color scheme" src="images/blink-light-hifi.png"><figcaption>Light color scheme</figcaption></figure>
+          <figure style="margin-top:0"><img alt="Photos removed" src="images/blink-final-hifi.png"><figcaption>Photos removed</figcaption></figure>
+        </div>
+      </section>
+
+      <section id="final">
+        <h2>FINAL DESIGN</h2>
+        <div class="final">
+          <img alt="" src="images/blink-background-top.png">
+          <video class="phone" src="videos/blink-final-demo.mov" autoplay loop muted playsinline></video>
+        </div>
+      </section>
+
+      <section id="takeaways" class="tk">
+        <h2>TAKEAWAYS</h2>
+        <p class="t"><b>Working cross-functionally: </b>A constraint that limited our design work was understanding how the developers on the team would implement them. Some aspects that we included in our designs, like the glassy effect on the bottom nav bar, didn’t translate well when actually implemented. Once we gained a better understanding of the tech stack and process that the dev team used, we were able to tailor our designs to be achievable for the app’s initial release within our deadline.</p>
+        <p class="t"><b>Understanding the user: </b>We initially included placeholders for photos for each pop-up or event, but as we experimented with using the app ourselves, we realized that the average user posting about a current pop-up likely wouldn’t want to take the time to take and upload a photo. Additionally, having photos could take away from the visual appeal of the UX and also left open the possibility for users to add inappropriate or irrelevant photos to the home page of the app. We ultimately removed the photo feature, which made our pages look much more streamlined and clean.</p>
+      </section>
+
+      <section id="extras">
+        <h2>BONUS: PREVIEW PAGES &amp; SOCIAL DESIGN</h2>
+        <p class="t">As designers that worked closely with the marketing team, we created much of the marketing and social materials for BLink in accordance with our app redesign to translate the new modern feel of the UX to our socials.</p>
+        <p class="t" style="margin-top:1.3em"><i>Tools used: Adobe Photoshop, Canva, Figma</i></p>
+        <div class="pair" style="margin-top:40px">
+          <figure><img class="f" style="aspect-ratio:1206/1608;object-fit:cover" alt="Original Instagram grid" src="images/blink-old-grid.jpg"><figcaption>Original Instagram grid</figcaption></figure>
+          <span class="arrow" aria-hidden="true">→</span>
+          <figure><img class="f" style="aspect-ratio:1206/1608;object-fit:cover" alt="Updated Instagram grid" src="images/blink-new-grid.jpg"><figcaption>Updated Instagram grid</figcaption></figure>
+        </div>
+        <figure style="max-width:1137px">
+          <img class="f" style="border-radius:0" alt="App store preview pages" src="images/blink-preview.png">
+          <figcaption>App store preview pages</figcaption>
+        </figure>
+      </section>
+    </div>
+    <a href="#top" aria-label="Back to top"><img class="up" alt="" src="images/up-arrow.png"></a>
+  </main>
+</div>
+
+<footer>
+  <h3>let’s connect! <img alt="" src="images/heart-button.png"></h3>
+  <ul>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><a href="mailto:katherinexs07@gmail.com">email</a></li>
+    <li><img alt="" src="images/linkedin-logo.png"><a href="https://www.linkedin.com/in/katherinexshen/" target="_blank" rel="noopener">linkedin</a></li>
+  </ul>
+</footer>
+
+<script>
+// highlight the current section in the sticky side nav
+const links=[...document.querySelectorAll('.side a[href^="#"]')].filter(a=>a.hash.length>1&&a.hash!=='#top');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.hash==='#'+e.target.id))}}),{rootMargin:'-20% 0px -70% 0px'});
+links.forEach(l=>{const s=document.querySelector(l.hash);s&&io.observe(s)});
+
+// reveal each block as it scrolls into view
+// Reveal only when scrolling DOWN into view. Scrolling up never fades anything:
+// blocks that are above the screen stay visible, and blocks below the screen quietly reset (off-screen) so they replay on the next pass down.
+const inView=new IntersectionObserver(es=>es.forEach(e=>{if(e.intersectionRatio>=0.08)e.target.classList.add('in')}),{threshold:[0,0.08],rootMargin:'0px 0px -6% 0px'});
+const offView=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting){e.target.classList.toggle('in',e.boundingClientRect.top<=0)}}),{threshold:0});
+const rv={observe(el){inView.observe(el);offView.observe(el)}};
+document.querySelectorAll('.hero,.meta,hr,section').forEach(el=>{el.classList.add('rv');rv.observe(el)});
+</script>
+</body>
+</html>
