@@ -3,55 +3,66 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About – Katherine Shen</title>
+<title>Play – Katherine Shen</title>
 <link rel="icon" type="image/png" href="favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600&family=Urbanist:wght@800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fdf9f5;--ink:#422821;--green:#698e4a;--foot:#f4e6e6;--sans:'Inter',system-ui,sans-serif;--syne:'Syne',system-ui,sans-serif}
+:root{--bg:#fdf9f5;--ink:#422821;--blue:#74a8cf;--foot:#f4e6e6;
+--sans:'Inter',system-ui,sans-serif;--syne:'Syne',system-ui,sans-serif;--urb:'Urbanist','Inter',sans-serif}
 *{box-sizing:border-box;margin:0}
-body{background:var(--bg);color:var(--ink);font:400 17px/1.4 var(--sans);overflow-x:hidden}
-a{color:inherit}img{display:block;max-width:100%}
-.top{display:flex;align-items:center;justify-content:space-between;padding:20px clamp(14px,1.7vw,26px);min-height:122px;gap:20px}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.4 var(--sans)}
+a{color:inherit}
+img{display:block;max-width:100%}
+/* top nav */
+.top{display:flex;align-items:center;justify-content:space-between;padding:20px clamp(14px,1.7vw,26px);min-height:121px;gap:20px}
 .brand{display:flex;align-items:center;gap:7px;text-decoration:none;font:600 24px var(--syne)}
 .brand img{width:64px;height:64px;object-fit:cover}
-.top nav{display:flex;gap:41px;font-size:20px}.top nav a{text-decoration:none}
-/* intro */
-.about{display:flex;align-items:flex-end;gap:35px;margin:-20px auto 0;padding:0 clamp(16px,.2vw,3px) 0 3px;max-width:1512px}
-.pw{position:relative;flex:0 0 38.3%}
-.pw .ph{position:relative;margin:69px 0 0 9.84%;width:90.16%;aspect-ratio:522/708;border-radius:30px;overflow:hidden}
-.pw .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:bottom;max-width:none}
-.heart{position:absolute;left:3.3%;top:19px;width:17.8%;aspect-ratio:1;object-fit:contain;transform:rotate(-31.53deg);z-index:2}
-.txt{flex:1;min-width:0;max-width:840px;display:flex;flex-direction:column;gap:18px}
-.hi{font:italic 700 clamp(56px,6.4vw,96px)/1 var(--sans);letter-spacing:.1em;color:var(--green)}
-.txt p+p{margin-top:1.3em}
-.btns{position:relative;width:100%;max-width:813px;aspect-ratio:813/112.299}
-.sb{position:absolute;aspect-ratio:1;object-fit:cover}
-/* collage: fixed arrangement scaled with the page width */
-.stage{position:relative;width:100%;aspect-ratio:1512/1026;margin-top:0}
+.top nav{display:flex;gap:41px;font-size:20px}
+.top nav a{text-decoration:none}
+/* layout */
+.wrap{display:flex;align-items:flex-start}
+.side{position:sticky;top:0;flex:0 0 269px;padding:122px 49px 71px;font-size:16px;display:flex;flex-direction:column;gap:32px;align-self:flex-start}
+.side a{text-decoration:none;opacity:.85;transition:opacity .15s}
+.side a:hover,.side a.on{opacity:1;font-weight:700}
+main{flex:1;min-width:0;padding:44px clamp(20px,3vw,33px) 140px;position:relative}
+.inner{max-width:1075px}
+h1{font:800 clamp(44px,7vw,72px)/1 var(--urb)}
+h2{font:500 24px/1.2 var(--syne);color:var(--blue);margin-bottom:8px}
+.desc{font-style:italic;margin-bottom:10px}
+section{margin-top:50px;scroll-margin-top:24px}
+section:first-of-type{margin-top:39px}
+/* photo grids: a fixed collage per section, positioned in % so the whole arrangement (gaps included) scales as one piece */
+.grid{position:relative;width:100%}
 .tile{position:absolute;overflow:hidden}
-.tile .cov,.tile .bot{width:100%;height:100%;object-fit:cover;max-width:none}.tile .bot{object-position:bottom}
-.cr{position:absolute;inset:0;overflow:hidden}.cr img{position:absolute;max-width:none}
-.cb{position:absolute;aspect-ratio:1;object-fit:cover}
-/* photo labels: same grey pill as the home page case studies, shown on hover (always visible on touch screens) */
-.stage{container-type:inline-size}
-.note{position:absolute;left:.8cqw;bottom:.8cqw;max-width:calc(100% - 1.6cqw);height:max(26px,2.381cqw);display:flex;align-items:center;padding:0 max(10px,.992cqw);background:rgba(103,103,103,.8);color:#fff;font:italic 400 max(11px,.794cqw)/1 var(--sans);border-radius:50px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transform:translateY(8px);transition:opacity .3s ease,transform .3s ease}
-.note.two{height:auto;padding:max(6px,.6cqw) max(10px,.992cqw);white-space:normal;line-height:1.25;border-radius:max(14px,1.3cqw)}
-.tile:hover .note{opacity:1;transform:none}
-@media(hover:none){.note{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){.note{transition:none}}
+.tile img{width:100%;height:100%;object-fit:cover;max-width:none}
+.tile img.fill{object-fit:fill}
+.tile img.crop{position:absolute}
+.up{position:absolute;right:20px;bottom:24px;width:68px;transform:rotate(6deg)}
 footer{background:var(--foot);padding:37px clamp(20px,4vw,58px);min-height:219px}
 footer h3{font:500 32px var(--syne);display:flex;align-items:center;gap:6px}
 footer h3 img{width:47px;transform:rotate(16.8deg)}
 footer ul{list-style:none;padding:0;margin-top:18px;display:flex;flex-direction:column;gap:12px;font-size:16px}
 footer li{display:flex;align-items:center;gap:11px}
-footer li img,footer li svg{width:28px;height:28px}footer li svg{color:#fff}
-/* scroll reveal */
+footer li img,footer li svg{width:28px;height:28px}
+footer li svg{color:#fff}
+/* tablet & mobile: sidebar becomes a sticky top strip */
+@media(max-width:900px){
+.wrap{flex-direction:column;align-items:stretch}
+.side{flex:none;flex-direction:row;padding:14px 20px;gap:22px;overflow-x:auto;background:var(--bg);z-index:5;border-bottom:1px solid #eadfd5;white-space:nowrap;width:100%}
+main{padding-top:32px;padding-bottom:100px}
+.top{padding-block:14px;min-height:0}
+.brand img{width:48px;height:48px}
+.top nav{gap:24px}
+.up{width:46px}
+}
+@media(max-width:560px){body{font-size:16px}}
+/* scroll reveal: fade + rise into place, photos one after another */
 .js .rv{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
 .js .rv.in{opacity:1;transform:none}
-.js .tile,.js .cb{opacity:0;transition:opacity .7s ease,translate .7s cubic-bezier(.2,.7,.2,1);translate:0 40px;transition-delay:calc(var(--i)*70ms)}
-.js .stage.in .tile,.js .stage.in .cb{opacity:1;translate:0 0}
-@media(max-width:900px){.about{flex-direction:column;align-items:center;padding:0 20px}.pw{flex:none;width:min(440px,100%)}.txt{max-width:none}}
-@media(prefers-reduced-motion:reduce){.js .rv,.js .tile,.js .cb{opacity:1;transform:none;translate:0 0;transition:none}}
+.js .tile{opacity:0;translate:0 40px;transition:opacity .7s ease,translate .7s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i)*70ms)}
+.js section.in .tile{opacity:1;translate:0 0}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv,.js .tile{opacity:1;transform:none;translate:0 0;transition:none}}
 
 /* shared polish: custom cursor, star size + wiggle, green link hovers */
 html,body,a,button{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAADgUlEQVR42r1WXUwcVRT+zrmzM8MusyoD60+2rfGHZKX1oZvWiIKkMRVDXxpRnvpQTapvvhkbX/pifNUQ3/RFjamNb5aWkkq1JFRrNgYLpdlEYiEB2bJbnFnWZYc7xwd27YKlYRPsl5xMMvfe75t75p7vXMLWoOpTQAQCIHUDAgAiG+fdg+Ru74WIICImAMcCHBewACAPrK4CPgCfiCpyR0i2I0AgkrRI9A9gd0/nwd0v9b2aaE/tcx50XQsAlvP51ez0Nf/HofO5H8avzj4OzGaIShD5j8hmASIiaRV5JJ3uePbdD0490fXyK60xxzHvMldWfL8ydvHC0icfnprJZKZ+WyL6UzaJqM3kj4kkB44NvDD41em9+/YfcE3LYmgdapFQ6oJFxLRt46nUMw/0vdbfVliYc+YmJr0ikVf/Mao+LQmRhweODbz48RenU03RmKWDQIMIpBQx84YAM4VhiHBtLYw2x83eo/3u7MwNe2ZiMr9CVKyJqNrPSSaTTemndx0c/PpMh90UtbTWWhkGEdHWx4wIrBRprUNmNp7v6XF+vnhOSmzOe54XACBVTQ0invfkR4OfpvfuP+AGQaANwyBsE8xMQRCE0ZhjP+S2Rc589nmhTJQHQAxARCTS1Zne03241wUQRpTaNnkN1TVh9+Fet6szvUdEIgCEsZ6C+KG+I4mY45ha6xDMaBjM0FqHMccxD/UdSQCIgwhMAGyguT3V4dyj8BoBtac6HBtoJgAsAFoAu6UtYWKH0NKWMFsAWwAw/mcwASgA5cKtXGWnSAu3cpUCUP43RWWgmJ2e8rdyxAYh2ekpvwwU11O07oTe6NDZ3IrvV5RSjDBsnDYMoZTiFd+vjA6dzQHwIAKuFlowNp65eXlkOA+AA60b3kl1DV8eGc6PjWduEtGdSgYAN5kszf36k9P3+hut0ZhjVct/W8dWay2GYai/bi+VTp44fj2vrGue563VBACAPN8PludzxaX52Xjv0X6XmQ0dBCGItvSjqtmJMgwFYO39t9/MXhi+dHXB95drHrfBrktExbmJSW925ob9XHd3PNoct4gI0Fq0CKQuWASkFLNS6nY+9/fJd97KfvvlN1cWiRbqG4/aXIVFIu/3icnCle/Ph61tCePR5C7btO0IMyuuA5hpxfeD0XPfLb534vj1keFLvywSzW9uOPe9Zd6Xpr+j15Z/AKEMv8H0CGsWAAAAAElFTkSuQmCC") 12 12,auto;cursor:image-set(url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAADgUlEQVR42r1WXUwcVRT+zrmzM8MusyoD60+2rfGHZKX1oZvWiIKkMRVDXxpRnvpQTapvvhkbX/pifNUQ3/RFjamNb5aWkkq1JFRrNgYLpdlEYiEB2bJbnFnWZYc7xwd27YKlYRPsl5xMMvfe75t75p7vXMLWoOpTQAQCIHUDAgAiG+fdg+Ru74WIICImAMcCHBewACAPrK4CPgCfiCpyR0i2I0AgkrRI9A9gd0/nwd0v9b2aaE/tcx50XQsAlvP51ez0Nf/HofO5H8avzj4OzGaIShD5j8hmASIiaRV5JJ3uePbdD0490fXyK60xxzHvMldWfL8ydvHC0icfnprJZKZ+WyL6UzaJqM3kj4kkB44NvDD41em9+/YfcE3LYmgdapFQ6oJFxLRt46nUMw/0vdbfVliYc+YmJr0ikVf/Mao+LQmRhweODbz48RenU03RmKWDQIMIpBQx84YAM4VhiHBtLYw2x83eo/3u7MwNe2ZiMr9CVKyJqNrPSSaTTemndx0c/PpMh90UtbTWWhkGEdHWx4wIrBRprUNmNp7v6XF+vnhOSmzOe54XACBVTQ0invfkR4OfpvfuP+AGQaANwyBsE8xMQRCE0ZhjP+S2Rc589nmhTJQHQAxARCTS1Zne03241wUQRpTaNnkN1TVh9+Fet6szvUdEIgCEsZ6C+KG+I4mY45ha6xDMaBjM0FqHMccxD/UdSQCIgwhMAGyguT3V4dyj8BoBtac6HBtoJgAsAFoAu6UtYWKH0NKWMFsAWwAw/mcwASgA5cKtXGWnSAu3cpUCUP43RWWgmJ2e8rdyxAYh2ekpvwwU11O07oTe6NDZ3IrvV5RSjDBsnDYMoZTiFd+vjA6dzQHwIAKuFlowNp65eXlkOA+AA60b3kl1DV8eGc6PjWduEtGdSgYAN5kszf36k9P3+hut0ZhjVct/W8dWay2GYai/bi+VTp44fj2vrGue563VBACAPN8PludzxaX52Xjv0X6XmQ0dBCGItvSjqtmJMgwFYO39t9/MXhi+dHXB95drHrfBrktExbmJSW925ob9XHd3PNoct4gI0Fq0CKQuWASkFLNS6nY+9/fJd97KfvvlN1cWiRbqG4/aXIVFIu/3icnCle/Ph61tCePR5C7btO0IMyuuA5hpxfeD0XPfLb534vj1keFLvywSzW9uOPe9Zd6Xpr+j15Z/AKEMv8H0CGsWAAAAAElFTkSuQmCC") 1x,url("data:image/png;base64,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") 2x) 12 12,auto}
@@ -59,9 +70,13 @@ html,body,a,button{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABg
 .brand img{transform-origin:50% 55%}
 @keyframes wiggle{0%,100%{transform:rotate(0)}18%{transform:rotate(-16deg)}36%{transform:rotate(13deg)}54%{transform:rotate(-9deg)}72%{transform:rotate(5deg)}}
 .brand:hover img,.brand:focus-visible img{animation:wiggle .7s ease-in-out}
+/* up arrow wiggles the same way, around its resting 6deg tilt */
+@keyframes upwiggle{0%,100%{transform:rotate(6deg)}18%{transform:rotate(-10deg)}36%{transform:rotate(19deg)}54%{transform:rotate(-3deg)}72%{transform:rotate(11deg)}}
+.up{transform-origin:50% 55%}
+a:hover>.up,a:focus-visible>.up{animation:upwiggle .7s ease-in-out}
 .top nav a,.side a,footer a,.brand{transition:color .15s ease}
-.top nav a:hover,.side a:hover,footer a:hover,.brand:hover{color:#698e4a}
-@media(prefers-reduced-motion:reduce){.brand:hover img,.brand:focus-visible img{animation:none}}
+.top nav a:hover,footer a:hover,.brand:hover{color:#698e4a}
+@media(prefers-reduced-motion:reduce){.brand:hover img,.brand:focus-visible img,a:hover>.up,a:focus-visible>.up{animation:none}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -71,42 +86,82 @@ html,body,a,button{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABg
   <nav><a href="index.html#work">work</a><a href="play.html">play</a><a href="about.html">about</a></nav>
 </header>
 
-<section class="about rv">
-  <div class="pw">
-    <div class="ph"><img alt="Katherine smiling at a table" src="images/main.jpg"></div>
-    <img class="heart" alt="" src="images/heart-button.png">
-  </div>
-  <div class="txt">
-    <h1 class="hi">Hi!</h1>
-    <div>
-      <p>I’m Katherine, a current sophomore studying Statistics &amp; Data Science at UCLA!</p>
-      <p>My passion for design comes from my love for all types of art---I’ve taken art classes since the age of 7, picked up embroidery, crochet, sewing, and clay work as hobbies, and even ran a jewelry business in high school. I believe something handmade and designed with care will always have more meaning than something mass-produced that can be bought in a store. This DIY attitude is the reason every person in my life receives a hand-painted card for every birthday, and also motivates me to design with empathy and intentionality.</p>
-      <p>Outside of design, I’m also passionate about data science. Similarly to design, I’m interested by how it bridges the intersection of tech and human behavior by ultimately being rooted in discovering insights in any field.</p>
-      <p>When I’m not designing, you can find me eating at restaurants to rank on Beli, smiling with all 24 of my teeth in photobooth strips, fighting to snag concert tickets, or taking photos of my friends on my most prized possession (a hand-me-down Sony RX100 II from my mom). Thanks for stopping by!</p>
-    </div>
-    <div class="btns" aria-hidden="true"><img class="sb" alt="" style="left:53.813%;top:50.933%;width:5.501%;transform:translate(-50%,-50%) rotate(-50.13deg)" src="images/periwinkle-button.png"><img class="sb" alt="" style="left:13.284%;top:43.589%;width:9.84%;transform:translate(-50%,-50%) rotate(0deg)" src="images/green-flower-button.png"><img class="sb" alt="" style="left:46.679%;top:37.801%;width:9.225%;transform:translate(-50%,-50%) rotate(0deg)" src="images/star-button.png"><img class="sb" alt="" style="left:21.156%;top:58.727%;width:5.904%;transform:translate(-50%,-50%) rotate(0deg)" src="images/pink-button.png"><img class="sb" alt="" style="left:27.516%;top:43.326%;width:7.842%;transform:translate(-50%,-50%) rotate(16.73deg)" src="images/heart-button.png"><img class="sb" alt="" style="left:36.9%;top:52.494%;width:8.856%;transform:translate(-50%,-50%) rotate(0deg)" src="images/polka-dot-button.png"><img class="sb" alt="" style="left:84.161%;top:68.724%;width:5.204%;transform:translate(-50%,-50%) rotate(32.64deg)" src="images/blue-button.png"><img class="sb" alt="" style="left:96.617%;top:62.734%;width:6.765%;transform:translate(-50%,-50%) rotate(0deg)" src="images/pink-white-button.png"><img class="sb" alt="" style="left:68.204%;top:54.72%;width:8.733%;transform:translate(-50%,-50%) rotate(0deg)" src="images/plant-button.png"><img class="sb" alt="" style="left:4.305%;top:37.356%;width:8.61%;transform:translate(-50%,-50%) rotate(0deg)" src="images/stripe-button.png"><img class="sb" alt="" style="left:61.426%;top:50%;width:12.423%;transform:translate(-50%,-50%) rotate(6.83deg)" src="images/ladybug-button.png"><img class="sb" alt="" style="left:76.384%;top:48.041%;width:12.054%;transform:translate(-50%,-50%) rotate(0deg)" src="images/white-flower-button.png"><img class="sb" alt="" style="left:90.529%;top:55.165%;width:8.118%;transform:translate(-50%,-50%) rotate(0deg)" src="images/apple-button.png"></div>
-  </div>
-</section>
+<div class="wrap">
+  <nav class="side" aria-label="Art sections">
+    <a href="#illustration">Art</a><a href="#photo">Photo</a><a href="#beadwork">Beadwork</a><a href="#textile">Textile</a>
+  </nav>
 
-<div class="stage rv" style="margin-top:clamp(24px,4vw,60px)" aria-label="Photos">
-<div class="tile" style="--i:0;left:1.455%;top:40.351%;width:24.14%;height:27.973%"><img alt="" class="cov" style="object-position:69.3% 67.1%" src="images/maine.jpg"><span class="note">Summit of beehive trail in Acadia National Park, Maine</span></div>
-<div class="tile" style="--i:1;left:20.569%;top:3.216%;width:32.143%;height:35.575%"><img alt="" class="cov" src="images/big-little.jpg"><span class="note">My big and my twin from DevX at UCLA</span></div>
-<div class="tile" style="--i:2;left:1.455%;top:3.216%;width:18.122%;height:35.575%"><img alt="" class="cov" style="object-position:left top" src="images/archives.jpg"><span class="note">My favorite matcha in LA!</span></div>
-<div class="tile" style="--i:3;left:1.455%;top:69.883%;width:22.817%;height:26.901%"><img alt="" class="cov" src="images/kevin.jpg"></div>
-<div class="tile" style="--i:4;left:25.265%;top:69.883%;width:15.013%;height:26.901%"><img alt="" class="cov" src="images/daydrift.png"></div>
-<div class="tile" style="--i:5;left:26.587%;top:40.351%;width:26.124%;height:27.973%"><img alt="" class="cov" src="images/bbash.jpg"></div>
-<div class="tile" style="--i:6;left:41.27%;top:69.883%;width:23.082%;height:26.901%"><img alt="" class="cov" style="object-position:0% 20.8%" src="images/woobin.jpg"></div>
-<div class="tile" style="--i:7;left:53.704%;top:3.216%;width:20.37%;height:44.152%"><img alt="" class="bot" src="images/lorde.jpg"><span class="note">My second time seeing Lorde in concert!</span></div>
-<div class="tile" style="--i:8;left:53.704%;top:48.83%;width:10.714%;height:19.493%"><img alt="" class="bot" src="images/stagger.jpg"></div>
-<div class="tile" style="--i:9;left:75.066%;top:3.216%;width:23.347%;height:22.904%"><img alt="" class="cov" src="images/jacinda.jpg"><span class="note">My most frequented matcha in LA</span></div>
-<div class="tile" style="--i:10;left:75.066%;top:27.583%;width:23.413%;height:19.786%"><img alt="" class="cov" style="object-position:0% 66.6%" src="images/hike.jpg"></div>
-<div class="tile" style="--i:11;left:65.41%;top:48.83%;width:15.807%;height:29.435%"><img alt="" class="cov" style="object-position:0% 78.8%" src="images/khaotiew.png"><span class="note">Khao Tiew, my top SF restaurant</span></div>
-<div class="tile" style="--i:12;left:65.41%;top:79.727%;width:15.807%;height:17.057%"><img alt="" class="cov" style="object-position:64.8% 0%" src="images/monet.jpg"><span class="note">Monet at De Young Museum, SF</span></div>
-<div class="tile" style="--i:13;left:82.341%;top:48.83%;width:16.204%;height:47.758%"><img alt="" class="bot" src="images/maya.JPG"><span class="note two">With DSU big at my fave SF sweet treat spot!</span></div>
-<img class="cb" alt="" style="--i:14;left:63.889%;top:68.324%;width:4.762%;transform:translate(-50%,-50%) rotate(0deg)" src="images/polka-dot-button.png"><img class="cb" alt="" style="--i:15;left:16.712%;top:41.295%;width:6.68%;transform:translate(-50%,-50%) rotate(-53.19deg)" src="images/ladybug-button.png"><img class="cb" alt="" style="--i:16;left:97.222%;top:26.121%;width:6.085%;transform:translate(-50%,-50%) rotate(0deg)" src="images/plant-button.png"><img class="cb" alt="" style="--i:17;left:25.231%;top:96.54%;width:5.489%;transform:translate(-50%,-50%) rotate(0deg)" src="images/white-flower-button.png"><img class="cb" alt="" style="--i:18;left:52.877%;top:39.815%;width:7.209%;transform:translate(-50%,-50%) rotate(0deg)" src="images/stripe-button.png"><img class="cb" alt="" style="--i:19;left:79.63%;top:3.216%;width:3.175%;transform:translate(-50%,-50%) rotate(0deg)" src="images/pink-button.png"><img class="cb" alt="" style="--i:20;left:81.217%;top:79.922%;width:5.026%;transform:translate(-50%,-50%) rotate(0deg)" src="images/pink-white-button.png"><img class="cb" alt="" style="--i:21;left:18.531%;top:74.677%;width:5.291%;transform:translate(-50%,-50%) rotate(28.33deg)" src="images/green-flower-button.png"><img class="cb" alt="" style="--i:22;left:19.59%;top:4.016%;width:6.243%;transform:translate(-50%,-50%) rotate(32.64deg)" src="images/blue-button.png">
+  <main>
+    <div class="inner">
+      <h1>Art &amp; other experiments</h1>
+      <section id="illustration">
+        <h2>Illustration</h2>
+        <div class="grid" style="aspect-ratio:1075/656.52">
+          <div class="tile" style="--i:0;left:0%;top:0%;width:21.75%;height:49.182%"><img alt="Illustration 1" loading="lazy" src="images/play/reflections.jpg"></div>
+          <div class="tile" style="--i:1;left:23.239%;top:0%;width:23.019%;height:49.182%"><img alt="Illustration 2" loading="lazy" class="crop" style="left:-0.05%;top:0%;width:102.77%;height:100%" src="images/play/img-3862.jpg"></div>
+          <div class="tile" style="--i:2;left:0%;top:51.619%;width:46.258%;height:48.381%"><img alt="Illustration 3" loading="lazy" class="crop" style="left:-8%;top:-10.8%;width:116%;height:121.6%" src="images/play/img-3291.jpg"></div>
+          <div class="tile" style="--i:3;left:47.746%;top:0%;width:52.254%;height:61.848%"><img alt="Illustration 4" loading="lazy" class="crop" style="left:0%;top:-2.77%;width:100%;height:102.78%" src="images/play/still-life.jpg"></div>
+          <div class="tile" style="--i:4;left:47.746%;top:64.285%;width:17.621%;height:35.715%"><img alt="Illustration 5" loading="lazy" class="crop" style="left:-2.36%;top:0%;width:102.42%;height:100%" src="images/play/img-4932.jpg"></div>
+          <div class="tile" style="--i:5;left:66.855%;top:64.285%;width:16.916%;height:35.715%"><img alt="Illustration 6" loading="lazy" class="crop" style="left:0%;top:-0.01%;width:101.81%;height:100.81%" src="images/play/img-6804.jpg"></div>
+          <div class="tile" style="--i:6;left:85.26%;top:64.285%;width:14.74%;height:35.715%"><img alt="Illustration 7" loading="lazy" src="images/play/img-7625.jpg"></div>
+        </div>
+      </section>
+      <section id="photo">
+        <h2>Photo</h2>
+        <p class="desc">One of my greatest joys is simply people watching on a sunny day in any city in the world, a passion reflected in the photos I take. Although it’s just a casual hobby, I still enjoy photography as a way to capture precious moments of my life!</p>
+        <div class="grid" style="aspect-ratio:1075/1119.11">
+          <div class="tile" style="--i:0;left:0%;top:0%;width:39.482%;height:24.545%"><img alt="Photo 1" loading="lazy" class="crop" style="left:-0.07%;top:-3.13%;width:100.14%;height:103.13%" src="images/play/dsc03700.jpg"></div>
+          <div class="tile" style="--i:1;left:40.971%;top:0%;width:38.391%;height:24.545%"><img alt="Photo 2" loading="lazy" src="images/play/dsc06626.jpg"></div>
+          <div class="tile" style="--i:2;left:80.85%;top:0%;width:19.15%;height:24.545%"><img alt="Photo 3" loading="lazy" src="images/play/dsc09969.jpg"></div>
+          <div class="tile" style="--i:3;left:0%;top:25.975%;width:34.644%;height:22.149%"><img alt="Photo 4" loading="lazy" src="images/play/dsc03738.jpg"></div>
+          <div class="tile" style="--i:4;left:36.132%;top:25.975%;width:32.471%;height:22.149%"><img alt="Photo 5" loading="lazy" class="crop" style="left:0%;top:-7.36%;width:104.69%;height:110.6%" src="images/play/img-1230.jpg"></div>
+          <div class="tile" style="--i:5;left:70.091%;top:25.975%;width:29.909%;height:22.149%"><img alt="Photo 6" loading="lazy" src="images/play/img-1830.jpg"></div>
+          <div class="tile" style="--i:6;left:0%;top:49.554%;width:31.536%;height:21.773%"><img alt="Photo 7" loading="lazy" class="crop" style="left:0%;top:0%;width:100%;height:104.35%" src="images/play/dsc09321.jpg"></div>
+          <div class="tile" style="--i:7;left:33.024%;top:49.554%;width:35.769%;height:21.773%"><img alt="Photo 8" loading="lazy" class="crop" style="left:0%;top:-2.97%;width:100%;height:105.2%" src="images/play/dsc06552.jpg"></div>
+          <div class="tile" style="--i:8;left:70.282%;top:49.554%;width:29.718%;height:21.773%"><img alt="Photo 9" loading="lazy" class="crop" style="left:-1.74%;top:-0.04%;width:101.74%;height:100.07%" src="images/play/dsc08328.jpg"></div>
+          <div class="tile" style="--i:9;left:0%;top:72.757%;width:41.702%;height:27.243%"><img alt="Photo 10" loading="lazy" class="crop" style="left:-2.19%;top:-0.06%;width:102.19%;height:100.12%" src="images/play/dsc09286.jpg"></div>
+          <div class="tile" style="--i:10;left:43.19%;top:72.757%;width:56.81%;height:27.243%"><img alt="Photo 11" loading="lazy" class="crop" style="left:0%;top:-18.27%;width:100%;height:118.28%" src="images/play/img-1830-2.jpg"></div>
+        </div>
+      </section>
+      <section id="beadwork">
+        <h2>Beadwork</h2>
+        <div class="grid" style="aspect-ratio:1075/674.95">
+          <div class="tile" style="--i:0;left:0%;top:0%;width:28.986%;height:46.166%"><img alt="Beadwork 1" loading="lazy" src="images/play/img-3301.jpg"></div>
+          <div class="tile" style="--i:1;left:30.474%;top:0%;width:13.778%;height:21.945%"><img alt="Beadwork 2" loading="lazy" src="images/play/img-3299.jpg"></div>
+          <div class="tile" style="--i:2;left:30.474%;top:24.315%;width:13.778%;height:21.851%"><img alt="Beadwork 3" loading="lazy" src="images/play/img-3300.jpg"></div>
+          <div class="tile" style="--i:3;left:45.741%;top:0%;width:24.432%;height:46.166%"><img alt="Beadwork 4" loading="lazy" class="crop" style="left:-7.07%;top:0%;width:118.59%;height:100%" src="images/play/img-3302.jpg"></div>
+          <div class="tile" style="--i:4;left:71.661%;top:0%;width:28.339%;height:46.166%"><img alt="Beadwork 5" loading="lazy" class="fill" src="images/play/img-3303.jpg"></div>
+          <div class="tile" style="--i:5;left:0%;top:48.537%;width:26.397%;height:51.463%"><img alt="Beadwork 6" loading="lazy" class="fill" src="images/play/img-3294.jpg"></div>
+          <div class="tile" style="--i:6;left:27.886%;top:48.537%;width:21.281%;height:24.993%"><img alt="Beadwork 7" loading="lazy" class="crop" style="left:-0.01%;top:-4.79%;width:100.03%;height:113.36%" src="images/play/img-3295.jpg"></div>
+          <div class="tile" style="--i:7;left:27.886%;top:75.9%;width:10.335%;height:24.1%"><img alt="Beadwork 8" loading="lazy" class="fill" src="images/play/img-3292.jpg"></div>
+          <div class="tile" style="--i:8;left:39.709%;top:75.9%;width:9.457%;height:24.1%"><img alt="Beadwork 9" loading="lazy" class="fill" src="images/play/img-3293.jpg"></div>
+          <div class="tile" style="--i:9;left:50.655%;top:48.537%;width:32.312%;height:51.463%"><img alt="Beadwork 10" loading="lazy" src="images/play/img-3296.jpg"></div>
+          <div class="tile" style="--i:10;left:84.455%;top:48.537%;width:15.545%;height:24.759%"><img alt="Beadwork 11" loading="lazy" class="crop" style="left:-3.89%;top:-3.89%;width:127.25%;height:127.25%" src="images/play/img-3297.jpg"></div>
+          <div class="tile" style="--i:11;left:84.455%;top:75.666%;width:15.545%;height:24.334%"><img alt="Beadwork 12" loading="lazy" class="crop" style="left:0%;top:0%;width:100%;height:101.75%" src="images/play/img-3298.jpg"></div>
+        </div>
+      </section>
+      <section id="textile">
+        <h2>Textile</h2>
+        <div class="grid" style="aspect-ratio:1075/670.24">
+          <div class="tile" style="--i:0;left:0%;top:0%;width:26.235%;height:45.483%"><img alt="Textile 1" loading="lazy" src="images/play/img-0767.jpg"></div>
+          <div class="tile" style="--i:1;left:27.724%;top:0%;width:10.863%;height:19.41%"><img alt="Textile 2" loading="lazy" src="images/play/img-0768.jpg"></div>
+          <div class="tile" style="--i:2;left:27.724%;top:21.797%;width:10.863%;height:23.686%"><img alt="Textile 3" loading="lazy" class="crop" style="left:-10.43%;top:0%;width:121.14%;height:110.14%" src="images/play/img-5061.jpg"></div>
+          <div class="tile" style="--i:3;left:40.076%;top:0%;width:21.234%;height:45.483%"><img alt="Textile 4" loading="lazy" class="crop" style="left:-19.43%;top:-22.44%;width:128.28%;height:128.01%" src="images/play/img-5635.jpg"></div>
+          <div class="tile" style="--i:4;left:62.798%;top:0%;width:37.202%;height:45.483%"><img alt="Textile 5" loading="lazy" class="fill" src="images/play/img-4718.jpg"></div>
+          <div class="tile" style="--i:5;left:0%;top:47.87%;width:42.847%;height:52.13%"><img alt="Textile 6" loading="lazy" class="crop" style="left:-0.01%;top:-36.7%;width:100.03%;height:175.93%" src="images/play/img-5637.jpg"></div>
+          <div class="tile" style="--i:6;left:44.335%;top:47.87%;width:15.507%;height:24.871%"><img alt="Textile 7" loading="lazy" src="images/play/img-0764.jpg"></div>
+          <div class="tile" style="--i:7;left:44.335%;top:75.129%;width:15.507%;height:24.871%"><img alt="Textile 8" loading="lazy" src="images/play/img-0765.jpg"></div>
+          <div class="tile" style="--i:8;left:61.33%;top:47.87%;width:23.373%;height:52.13%"><img alt="Textile 9" loading="lazy" class="crop" style="left:-3.21%;top:-0.02%;width:103.21%;height:100.03%" src="images/play/img-3322.jpg"></div>
+          <div class="tile" style="--i:9;left:85.262%;top:47.87%;width:14.738%;height:24.178%"><img alt="Textile 10" loading="lazy" class="crop" style="left:-0.06%;top:-19.6%;width:100.11%;height:130.51%" src="images/play/img-7154.jpg"></div>
+          <div class="tile" style="--i:10;left:85.262%;top:74.436%;width:14.738%;height:25.564%"><img alt="Textile 11" loading="lazy" class="fill" src="images/play/img-7157.jpg"></div>
+        </div>
+      </section>
+    </div>
+    <a href="#top" aria-label="Back to top"><img class="up" alt="" src="images/up-arrow.png"></a>
+  </main>
 </div>
 
-<footer style="margin-top:clamp(16px,2vw,30px)">
+<footer>
   <h3>let’s connect! <img alt="" src="images/heart-button.png"></h3>
   <ul>
     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><a href="mailto:katherinexs07@gmail.com">email</a></li>
@@ -115,13 +170,18 @@ html,body,a,button{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABg
 </footer>
 
 <script>
-// reveal blocks as they scroll into view
+// highlight the current section in the sticky side nav
+const links=[...document.querySelectorAll('.side a[href^="#"]')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.hash==='#'+e.target.id))}}),{rootMargin:'-20% 0px -70% 0px'});
+links.forEach(l=>{const s=document.querySelector(l.hash);s&&io.observe(s)});
+
+// reveal each block as it scrolls into view
 // Reveal only when scrolling DOWN into view. Scrolling up never fades anything:
 // blocks that are above the screen stay visible, and blocks below the screen quietly reset (off-screen) so they replay on the next pass down.
 const inView=new IntersectionObserver(es=>es.forEach(e=>{if(e.intersectionRatio>=0.08)e.target.classList.add('in')}),{threshold:[0,0.08],rootMargin:'0px 0px -6% 0px'});
 const offView=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting){e.target.classList.toggle('in',e.boundingClientRect.top<=0)}}),{threshold:0});
 const rv={observe(el){inView.observe(el);offView.observe(el)}};
-document.querySelectorAll('.rv').forEach(el=>rv.observe(el));
+document.querySelectorAll('h1,section').forEach(el=>{el.classList.add('rv');rv.observe(el)});
 </script>
 </body>
 </html>

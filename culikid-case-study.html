@@ -33,8 +33,8 @@ h2{font:700 28px var(--syne);color:var(--blue);margin-bottom:13px}
 p.t{max-width:1000px}
 section{margin-top:61px;scroll-margin-top:24px}
 /* hero */
-.hero{position:relative;margin-top:39px;max-width:990px;aspect-ratio:990/485;border-radius:30px;overflow:hidden;background:linear-gradient(120deg,#cfe0f1,#e9dcef 60%,#f6e3e6)}
-.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(2.5px);opacity:.7}
+.hero{position:relative;margin-top:39px;max-width:990px;aspect-ratio:990/485;border-radius:30px;overflow:hidden}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .phone{position:absolute;top:6.4%;height:87.6%;aspect-ratio:196/425;border-radius:30px;background:rgba(255,255,255,.55);border:1px solid rgba(66,40,33,.12);display:grid;place-items:center;font-size:13px;text-align:center;padding:8px}
 .meta{display:flex;flex-wrap:wrap;gap:24px clamp(40px,11vw,166px);margin-top:39px}
 .meta u{text-underline-position:from-font}
@@ -52,8 +52,8 @@ figcaption{font-size:14px}
 .arrow{align-self:center;font-size:40px;color:var(--blue)}
 .pair{display:flex;gap:45px;justify-content:center;align-items:center;flex-wrap:wrap}
 .pair figure{width:min(436px,100%);margin-top:0}
-.final{position:relative;margin-top:26px;aspect-ratio:850/586;max-width:850px;margin-inline:auto;border-radius:25px;overflow:hidden;background:linear-gradient(120deg,#cfe0f1,#e9dcef 60%,#f6e3e6)}
-.final img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(2.5px);opacity:.7}
+.final{position:relative;margin-top:26px;aspect-ratio:850/586;max-width:850px;margin-inline:auto;border-radius:25px;overflow:hidden}
+.final img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .final .phone{left:50%;transform:translateX(-50%);top:7%;height:85%;aspect-ratio:230/500;border-radius:37px}
 b{font-weight:700}
 .tk p+p{margin-top:1.3em}
@@ -110,9 +110,13 @@ html,body,a,button{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABg
 .brand img{transform-origin:50% 55%}
 @keyframes wiggle{0%,100%{transform:rotate(0)}18%{transform:rotate(-16deg)}36%{transform:rotate(13deg)}54%{transform:rotate(-9deg)}72%{transform:rotate(5deg)}}
 .brand:hover img,.brand:focus-visible img{animation:wiggle .7s ease-in-out}
+/* up arrow wiggles the same way, around its resting 6deg tilt */
+@keyframes upwiggle{0%,100%{transform:rotate(6deg)}18%{transform:rotate(-10deg)}36%{transform:rotate(19deg)}54%{transform:rotate(-3deg)}72%{transform:rotate(11deg)}}
+.up{transform-origin:50% 55%}
+a:hover>.up,a:focus-visible>.up{animation:upwiggle .7s ease-in-out}
 .top nav a,.side a,footer a,.brand{transition:color .15s ease}
 .top nav a:hover,footer a:hover,.brand:hover{color:#698e4a}
-@media(prefers-reduced-motion:reduce){.brand:hover img,.brand:focus-visible img{animation:none}}
+@media(prefers-reduced-motion:reduce){.brand:hover img,.brand:focus-visible img,a:hover>.up,a:focus-visible>.up{animation:none}}
 video.vid{object-fit:cover;padding:0;border:0;background:none}
 video.final2{aspect-ratio:auto;width:100%;height:auto;display:block;border:0;background:none;padding:0}
 </style>
@@ -121,7 +125,7 @@ video.final2{aspect-ratio:auto;width:100%;height:auto;display:block;border:0;bac
 <body>
 <header class="top" id="top">
   <a class="brand" href="index.html"><img alt="" src="images/star-button.png">Katherine Shen</a>
-  <nav><a href="index.html#work">work</a><a href="about.html">about</a></nav>
+  <nav><a href="index.html#work">work</a><a href="play.html">play</a><a href="about.html">about</a></nav>
 </header>
 
 <div class="wrap">
